@@ -1,0 +1,33 @@
+apiVersion: apps/version_1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+# Deployment will create 3 replicated pots
+# that will be indicated with .spec.replicas
+spec:
+  replicas: 3
+
+# selector defines how the deployment will find which pods to manage
+# here we select a label that is defined in the pod template app:nginx
+  selector:
+    matchLabels:
+      app: nginx
+# it contains :
+# pods are labeled as app: ngnix using .metadata.labels
+# pod template specifications : template.spec
+  template:
+    metadata:
+      labels:
+        app:nginx
+# indicates that pod run one container
+# which runs the nginx docker hub image of version 1.14.2
+  spec:
+    containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+      -containerPort: 80
+      
+#.spec.template.spec.container[0].name
