@@ -4,8 +4,8 @@ const app = express();
 
 app.get('/', (req, res) => {
     res.send(`
-    <h1>Hello from node</h1>
-    <p>Hamko kuch ni ata</p>
+
+    <h1>Hamko kuch ni ata</h1>
     `);
 });
 
