@@ -9,13 +9,12 @@ from django.http import HttpResponse
 #     name = 'Mohit'
 #     return render(request, 'index.html',context={'name' : name})
 
-def index (request):
-    name = 'Mohit'
+def login(request):
     return render(request, 'login.html')
 
-def login(request):
-    username = request.GET['u_name']
-    password = request.GET['u_password']
+def index(request):
+    username = request.POST['u_name']
+    password = request.POST['u_password']
     if username == 'mohit' and password == 'mohit03':
         msg = 'Login successful'
     else:
