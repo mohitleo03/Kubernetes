@@ -39,6 +39,56 @@
                 </tr>
             </table>
         </form>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            Enter Name
+                        </td>
+                        <td>
+                            <input type="text" name="u_name" placeholder="Enter name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Enter Password
+                        </td>
+                        <td>
+                            <input type="password" name="u_password" placeholder="Enter password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Enter Email
+                        </td>
+                        <td>
+                            <input type="text" name="u_email" placeholder="Enter email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Enter Gender
+                        </td>
+                        <td>
+                            <input type="text" name="u_gender" placeholder="Enter Gender">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="reset">
+                        </td>
+                        <td>
+                            <input type="submit" value="Register">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{msg}}
+                        </td>
+                    </tr>
+                </table>
+            </form>
     </h1>
 </body>
 </html>

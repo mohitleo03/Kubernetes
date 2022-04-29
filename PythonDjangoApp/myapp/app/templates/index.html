@@ -10,5 +10,14 @@
     <h1>Django Example</h1>
     <h2>Name from Python Server {{name}}</h2>
     <h3>Login message {{msg}}</h3>
+    <ul>
+        {% for item in data %}
+        <li>
+            <img src="{{item.url}}" alt="" srcset="">
+            <h4>{{item.name}}</h4>
+            <p>{{item.price}}</p>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
