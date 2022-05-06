@@ -1,0 +1,12 @@
+#LoadBalancer Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: crud_App_svc
+spec: 
+  selector:
+    app: crud_app
+  ports:
+    - port: 8000
+      targetPort: 5000
+  type: LoadBalancer

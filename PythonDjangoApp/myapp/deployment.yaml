@@ -1,0 +1,21 @@
+apiVersion: app/v1
+kind: Deployment
+metadata: 
+  name: crud_app
+  labels: 
+    app: crud_app
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: crud_app
+  template:
+    metadata:
+      app: crud_app
+  spec: 
+    containers:
+      - name: crud_app
+        image: mohitleo03/my-python-app
+        ports: 
+          - containerPort: 5000
+        imagePullPolicy: Always
