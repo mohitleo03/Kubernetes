@@ -3,9 +3,15 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send(`
-    <h1>Hamko kuch ni ata</h1>
-    `);
+    try{
+        res.send(`
+        <h1>Hello from Node</h1>
+        <h2>Changes</h2>
+        `);
+    }
+    catch(err){
+        console.log(err);
+    }
 });
 
 app.get('/error', (req, res) => {
