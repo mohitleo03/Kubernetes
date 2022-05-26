@@ -15,7 +15,7 @@ spec:
   spec: 
     containers:
       - name: crud_app
-        image: mohitleo03/my-python-app
+        image: mohitleo03/python-django-app
         ports: 
           - containerPort: 5000
         imagePullPolicy: Always

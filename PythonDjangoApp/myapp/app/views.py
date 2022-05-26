@@ -1,26 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from pymongo import MongoClient
-# Create your views here.
-
-# def index (request):
-#     return HttpResponse("<h1>Hello from Django...</h1>")
-
-# def index (request):
-#     name = 'Mohit'
-#     return render(request, 'index.html',context={'name' : name})
-
-mongo = MongoClient('localhost',27017)
+# mongo = MongoClient('172:17.0.2',27017) #not working
+mongo = MongoClient('localhost',27017) #this line has some issues becuas eit can't find mongodb container
 db = mongo['ncu_db']
 collection = db['customers']
 users_collection = db['users']
-
 productList = []
-
-
 def login(request):
     return render(request, 'login.html')
-
 def register(request):
     username = request.POST['u_name']
     password = request.POST['u_password']

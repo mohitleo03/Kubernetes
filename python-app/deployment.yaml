@@ -1,35 +1,33 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: python-app
-spec:
-  replicas: 4
-  selector:
-    matchLabels:
-      app: first-python-app
-  template:
-    metadata:
-      labels:
-        app: first-python-app
-    spec:
-      containers:
-        - name: python-app
-          image: mohitleo03/my-python-app
-          imagePullPolicy: Never
-          ports:
-            - containerPort: 5000
----
 apiVersion: v1
 kind: Service
-metadata:
-  name: python-app
+metadata: 
+  name: hello-python-service
 spec:
   selector:
-    app: first-python-app
+    app: hello-python
   ports:
-    - protocol: 'TCP'
-      port: 80
-      targetPort: 8080
-      nodePort: 12345
-      #nodePort
+  - protocol: 'TCP'
+    port: 5000
+    targetPort: 5000
   type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: hello-python
+spec: 
+  selector:
+    matchLabels:
+      app: hello-python
+  replicas: 4
+  template:
+    metadata:
+      labels: 
+        app: hello-python
+    spec: 
+      containers:
+      - name: hello-python
+        image: mohitleo03/python-first-app
+        imagePullPolicy: Never
+        ports:
+          containerPort: 5000
